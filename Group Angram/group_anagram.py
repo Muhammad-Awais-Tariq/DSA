@@ -23,3 +23,25 @@ def check_anagram(s: str, t: str) -> bool:
             return False
 
     return True
+
+def groupAnagrams(strs):
+    """
+    :type strs: List[str]
+    :rtype: List[List[str]]
+    """
+
+    all_anagrams = []
+
+    for elment in strs:
+        angrams = [elment]
+        for second_elment in strs:
+            if check_anagram(elment , second_elment) and second_elment not in angrams:
+                angrams.append(second_elment)
+
+        angrams = sorted(angrams)
+        if angrams not in all_anagrams:
+            all_anagrams.append(angrams)
+
+    return all_anagrams
+
+print(groupAnagrams(["a"]))
