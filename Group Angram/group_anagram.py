@@ -5,6 +5,23 @@ def groupAnagrams(strs):
     :rtype: List[List[str]]
     """
 
+    all_anagrams = {}
+
+    for string in strs:
+        anagram_list = [0] * 26
+
+        for char in string:
+            anagram_list[ord(char) - ord("a")] += 1
+
+        key = "".join(str(anagram_list))
+
+        if key in all_anagrams:
+            all_anagrams[key].append(string)
+        else:
+            all_anagrams[key] = [string]
+
+    return list(all_anagrams.values())
+
 
 #           My solution not optimal
 # --------------------------------------------------------------------------------------------- #
