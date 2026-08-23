@@ -1,47 +1,52 @@
-def check_anagram(s: str, t: str) -> bool:
-    """Check if two strings are anagrams.
 
-    Parameters:
-        s (str): The first string.
-        t (str): The second string.
 
-    Returns:
-        bool: True if both strings are anagrams, otherwise False.
-    """
 
-    if len(s) != len(t):
-        return False
+#           My solution not optimal
+# --------------------------------------------------------------------------------------------- #
+# def check_anagram(s: str, t: str) -> bool:
+#     """Check if two strings are anagrams.
 
-    alphabets = [0] * 26
+#     Parameters:
+#         s (str): The first string.
+#         t (str): The second string.
 
-    for i in range(len(s)):
-        alphabets[ord(s[i])-ord("a")] +=1
-        alphabets[ord(t[i])-ord("a")] -=1
+#     Returns:
+#         bool: True if both strings are anagrams, otherwise False.
+#     """
 
-    for i in range(len(alphabets)):
-        if alphabets[i] != 0:
-            return False
+#     if len(s) != len(t):
+#         return False
 
-    return True
+#     alphabets = [0] * 26
 
-def groupAnagrams(strs):
-    """
-    :type strs: List[str]
-    :rtype: List[List[str]]
-    """
+#     for i in range(len(s)):
+#         alphabets[ord(s[i])-ord("a")] +=1
+#         alphabets[ord(t[i])-ord("a")] -=1
 
-    all_anagrams = []
+#     for i in range(len(alphabets)):
+#         if alphabets[i] != 0:
+#             return False
 
-    for elment in strs:
-        angrams = [elment]
-        for second_elment in strs:
-            if check_anagram(elment , second_elment) and second_elment not in angrams:
-                angrams.append(second_elment)
+#     return True
 
-        angrams = sorted(angrams)
-        if angrams not in all_anagrams:
-            all_anagrams.append(angrams)
+# def groupAnagrams(strs):
+#     """
+#     :type strs: List[str]
+#     :rtype: List[List[str]]
+#     """
 
-    return all_anagrams
+#     all_anagrams = []
 
-print(groupAnagrams(["a"]))
+#     for elment in strs:
+#         angrams = [elment]
+#         for second_elment in strs:
+#             if check_anagram(elment , second_elment) and second_elment not in angrams:
+#                 angrams.append(second_elment)
+
+#         angrams = sorted(angrams)
+#         if angrams not in all_anagrams:
+#             all_anagrams.append(angrams)
+
+#     return all_anagrams
+
+# print(groupAnagrams(["a"]))
