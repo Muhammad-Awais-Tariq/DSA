@@ -1,4 +1,9 @@
 
+def groupAnagrams(strs):
+    """
+    :type strs: List[str]
+    :rtype: List[List[str]]
+    """
 
 
 #           My solution not optimal
