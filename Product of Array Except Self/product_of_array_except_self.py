@@ -1,4 +1,22 @@
 
+# ------------------------ optimal solution --------------------------------
+# def productExceptSelf(nums):
+
+#     answers = [1] * len(nums)
+
+#     pre = 1
+#     post = 1
+
+#     for i in range(len(nums)):
+#         answers[i] = pre
+#         pre = pre * nums[i]
+
+#     for i in range(len(nums)-1 , -1 ,-1):
+#         answers[i] *= post
+#         post = post * nums[i]
+
+#     return answers
+
 # ------------------------ Semi optimal solution --------------------------------
 # def productExceptSelf(nums: list) -> list:
 
