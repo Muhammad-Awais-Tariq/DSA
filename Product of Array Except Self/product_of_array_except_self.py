@@ -1,4 +1,5 @@
 
+# ------------------------ My solution --------------------------------
 def productExceptSelf(nums: list) -> list:
     """Return the product of all elements except the element at each index.
 
