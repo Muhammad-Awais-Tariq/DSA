@@ -34,5 +34,11 @@
     "last_solved": "2026-08-24",
     "next_review": "2026-08-29",
     "streak": 0
+  },
+  "top-k-frequent-elements": {
+    "pattern": "hashmap/heapq",
+    "last_solved": "2026-08-25",
+    "next_review": "2026-08-28",
+    "streak": 0
   }
 }
