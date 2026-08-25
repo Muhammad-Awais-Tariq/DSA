@@ -1,5 +1,32 @@
 
+# ------------------------------- Optimal solution ------------------------------
 
+import heapq
+
+def topKFrequent(nums, k):
+    """
+    :type nums: List[int]
+    :type k: int
+    :rtype: List[int]
+    """
+
+    hash_map = {}
+
+    for num in nums:
+        if num in hash_map:
+            hash_map[num] += 1
+        else:
+            hash_map[num] = 1
+
+    answers = [] 
+
+    for key , value in hash_map.items():
+        heapq.heappush(answers , (value , key))
+
+        if len(answers) > k:
+            heapq.heappop(answers)
+
+    return [answer[1] for answer in answers]    
 
 # ------------------------------- My solution ------------------------------
 
