@@ -5,7 +5,9 @@ review.py - Simple spaced-repetition tracker for LeetCode problems.
 Usage:
     python review.py add "Two Sum" "Hashmap"
         -> add a new problem, first review in 3 days
-
+    
+    you can use solved: Two Sum [Hashmap] this pattern when submitting with git commit to automatically use the hook
+    
     python review.py pass "Two Sum"
         -> you revisited it and solved it cleanly (streak grows, interval grows)
 
