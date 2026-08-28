@@ -37,9 +37,9 @@
   },
   "top-k-frequent-elements": {
     "pattern": "hashmap/heapq",
-    "last_solved": "2026-08-25",
-    "next_review": "2026-08-28",
-    "streak": 0
+    "last_solved": "2026-08-28",
+    "next_review": "2026-09-01",
+    "streak": 1
   },
   "Roman To Integer": {
     "pattern": "Hashmap",
