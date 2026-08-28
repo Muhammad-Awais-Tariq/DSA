@@ -52,5 +52,11 @@
     "last_solved": "2026-08-27",
     "next_review": "2026-08-30",
     "streak": 0
+  },
+  "longest consecutive sequence": {
+    "pattern": "Hashset",
+    "last_solved": "2026-08-28",
+    "next_review": "2026-08-31",
+    "streak": 0
   }
 }
