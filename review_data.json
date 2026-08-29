@@ -7,9 +7,9 @@
   },
   "Contains Duplicate": {
     "pattern": "Hashmap",
-    "last_solved": "2026-08-25",
-    "next_review": "2026-08-29",
-    "streak": 1
+    "last_solved": "2026-08-29",
+    "next_review": "2026-09-06",
+    "streak": 2
   },
   "Contains Duplicate II": {
     "pattern": "Hashmap/Window",
