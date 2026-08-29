@@ -58,5 +58,11 @@
     "last_solved": "2026-08-28",
     "next_review": "2026-08-31",
     "streak": 0
+  },
+  "first-missing-positive": {
+    "pattern": "Loop",
+    "last_solved": "2026-08-29",
+    "next_review": "2026-09-01",
+    "streak": 0
   }
 }
