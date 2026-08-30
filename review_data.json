@@ -13,9 +13,9 @@
   },
   "Contains Duplicate II": {
     "pattern": "Hashmap/Window",
-    "last_solved": "2026-08-26",
-    "next_review": "2026-08-30",
-    "streak": 1
+    "last_solved": "2026-08-30",
+    "next_review": "2026-09-01",
+    "streak": 0
   },
   "Valid Anagram": {
     "pattern": "Hashmap/Sort",
