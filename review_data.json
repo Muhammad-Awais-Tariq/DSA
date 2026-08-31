@@ -31,8 +31,8 @@
   },
   "Product of Array Except Self": {
     "pattern": "Prefix/Suffix",
-    "last_solved": "2026-08-29",
-    "next_review": "2026-08-31",
+    "last_solved": "2026-08-31",
+    "next_review": "2026-09-02",
     "streak": 0
   },
   "top-k-frequent-elements": {
