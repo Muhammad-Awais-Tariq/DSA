@@ -25,9 +25,9 @@
   },
   "Group Anagram": {
     "pattern": "Hashmap",
-    "last_solved": "2026-08-28",
-    "next_review": "2026-09-01",
-    "streak": 1
+    "last_solved": "2026-09-01",
+    "next_review": "2026-09-09",
+    "streak": 2
   },
   "Product of Array Except Self": {
     "pattern": "Prefix/Suffix",
