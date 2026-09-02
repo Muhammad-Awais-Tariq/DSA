@@ -31,9 +31,9 @@
   },
   "Product of Array Except Self": {
     "pattern": "Prefix/Suffix",
-    "last_solved": "2026-08-31",
-    "next_review": "2026-09-02",
-    "streak": 0
+    "last_solved": "2026-09-02",
+    "next_review": "2026-09-06",
+    "streak": 1
   },
   "top-k-frequent-elements": {
     "pattern": "hashmap/heapq",
