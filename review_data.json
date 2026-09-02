@@ -43,9 +43,9 @@
   },
   "Roman To Integer": {
     "pattern": "Hashmap",
-    "last_solved": "2026-08-29",
-    "next_review": "2026-09-02",
-    "streak": 1
+    "last_solved": "2026-09-02",
+    "next_review": "2026-09-04",
+    "streak": 0
   },
   "verifying-an-alien-dictionary": {
     "pattern": "Hashmap",
