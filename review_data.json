@@ -49,9 +49,9 @@
   },
   "verifying-an-alien-dictionary": {
     "pattern": "Hashmap",
-    "last_solved": "2026-09-01",
-    "next_review": "2026-09-03",
-    "streak": 0
+    "last_solved": "2026-09-03",
+    "next_review": "2026-09-07",
+    "streak": 1
   },
   "longest consecutive sequence": {
     "pattern": "Hashset",
