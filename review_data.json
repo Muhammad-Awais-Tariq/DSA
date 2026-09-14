@@ -19,9 +19,9 @@
   },
   "Valid Anagram": {
     "pattern": "Hashmap/Sort",
-    "last_solved": "2026-09-10",
-    "next_review": "2026-09-14",
-    "streak": 1
+    "last_solved": "2026-09-14",
+    "next_review": "2026-09-22",
+    "streak": 2
   },
   "Group Anagram": {
     "pattern": "Hashmap",
