@@ -61,9 +61,9 @@
   },
   "first-missing-positive": {
     "pattern": "Loop",
-    "last_solved": "2026-09-09",
-    "next_review": "2026-09-17",
-    "streak": 2
+    "last_solved": "2026-09-17",
+    "next_review": "2026-09-19",
+    "streak": 0
   },
   "best-time-to-buy-and-sell-stock": {
     "pattern": "loop",
