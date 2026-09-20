@@ -1,4 +1,6 @@
 
+
+# -------------------------- Optimal Solution ---------------
 def checkInclusion(s1, s2):
     if len(s1) > len(s2):
         return False
@@ -18,7 +20,6 @@ def checkInclusion(s1, s2):
         s2_map[ord(s2[i]) - ord("a")] -= 1
 
     return s1_map == s2_map
-
 
 
 # --------------------------- My solution --------------------------------------------------
