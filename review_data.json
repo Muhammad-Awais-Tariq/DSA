@@ -67,9 +67,9 @@
   },
   "best-time-to-buy-and-sell-stock": {
     "pattern": "loop",
-    "last_solved": "2026-09-17",
-    "next_review": "2026-09-21",
-    "streak": 1
+    "last_solved": "2026-09-21",
+    "next_review": "2026-09-29",
+    "streak": 2
   },
   "permutation-in-string": {
     "pattern": "Sliding Window",
