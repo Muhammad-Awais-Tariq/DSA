@@ -55,8 +55,8 @@
   },
   "longest consecutive sequence": {
     "pattern": "Hashset",
-    "last_solved": "2026-09-24",
-    "next_review": "2026-09-26",
+    "last_solved": "2026-09-26",
+    "next_review": "2026-09-28",
     "streak": 0
   },
   "first-missing-positive": {
