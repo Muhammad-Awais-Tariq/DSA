@@ -73,8 +73,8 @@
   },
   "permutation-in-string": {
     "pattern": "Sliding Window",
-    "last_solved": "2026-09-27",
-    "next_review": "2026-09-29",
+    "last_solved": "2026-09-29",
+    "next_review": "2026-10-01",
     "streak": 0
   },
   "longest Repeating Character Replacement": {
