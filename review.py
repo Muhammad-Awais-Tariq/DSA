@@ -5,14 +5,20 @@ review.py - Simple spaced-repetition tracker for LeetCode problems.
 Usage:
     python review.py add "Two Sum" "Hashmap"
         -> add a new problem, first review in 3 days
-    
+
     you can use solved: Two Sum [Hashmap] this pattern when submitting with git commit to automatically use the hook
-    
+
     python review.py pass "Two Sum"
-        -> you revisited it and solved it cleanly (streak grows, interval grows)
+        -> solved it cleanly (streak +1, interval grows)
+
+    python review.py slip "Two Sum"
+        -> right approach, small bug/typo (streak -1, not a reset)
 
     python review.py fail "Two Sum"
-        -> you fumbled it (streak resets, review again in 2 days)
+        -> forgot the approach or got it wrong (streak -2, review in 2 days)
+
+    python review.py reset "Two Sum"
+        -> genuinely couldn't start (streak back to 0)
 
     python review.py list
         -> shows everything, DUE items at the top
@@ -29,6 +35,10 @@ from datetime import date, timedelta
 from pathlib import Path
 
 DATA_FILE = Path(__file__).parent / "review_data.json"
+
+# How many streak levels each outcome costs
+SLIP_PENALTY = 1
+FAIL_PENALTY = 2
 
 
 def load_data():
@@ -47,10 +57,29 @@ def today_str():
     return date.today().isoformat()
 
 
+def interval_for(streak):
+    """Days until next review for a given streak. Streak 0 -> 2 days."""
+    return 4 * streak if streak > 0 else 2
+
+
+def get_entry(data, name):
+    if name not in data:
+        print(f"'{name}' not found. Add it first with: python review.py add \"{name}\" \"Pattern\"")
+        return None
+    return data[name]
+
+
+def schedule(entry, days):
+    next_review = date.today() + timedelta(days=days)
+    entry["last_solved"] = today_str()
+    entry["next_review"] = next_review.isoformat()
+    return next_review
+
+
 def add_problem(name, pattern="General"):
     data = load_data()
     if name in data:
-        print(f"'{name}' already exists. Use 'pass'/'fail' to update it instead.")
+        print(f"'{name}' already exists. Use pass/slip/fail to update it instead.")
         return
     next_review = date.today() + timedelta(days=3)
     data[name] = {
@@ -65,31 +94,46 @@ def add_problem(name, pattern="General"):
 
 def mark_pass(name):
     data = load_data()
-    if name not in data:
-        print(f"'{name}' not found. Add it first with: python review.py add \"{name}\" \"Pattern\"")
+    entry = get_entry(data, name)
+    if entry is None:
         return
-    entry = data[name]
     entry["streak"] += 1
-    interval = 4 * entry["streak"]  # grows: 4, 8, 12, 16...
-    next_review = date.today() + timedelta(days=interval)
-    entry["last_solved"] = today_str()
-    entry["next_review"] = next_review.isoformat()
+    next_review = schedule(entry, interval_for(entry["streak"]))
     save_data(data)
     print(f"'{name}' passed. Streak: {entry['streak']}. Next review: {next_review.isoformat()}")
 
 
+def mark_slip(name):
+    data = load_data()
+    entry = get_entry(data, name)
+    if entry is None:
+        return
+    entry["streak"] = max(0, entry["streak"] - SLIP_PENALTY)
+    next_review = schedule(entry, interval_for(entry["streak"]))
+    save_data(data)
+    print(f"'{name}' small slip. Streak: {entry['streak']}. Next review: {next_review.isoformat()}")
+
+
 def mark_fail(name):
     data = load_data()
-    if name not in data:
-        print(f"'{name}' not found. Add it first with: python review.py add \"{name}\" \"Pattern\"")
+    entry = get_entry(data, name)
+    if entry is None:
         return
-    entry = data[name]
-    entry["streak"] = 0
-    next_review = date.today() + timedelta(days=2)
-    entry["last_solved"] = today_str()
-    entry["next_review"] = next_review.isoformat()
+    entry["streak"] = max(0, entry["streak"] - FAIL_PENALTY)
+    next_review = schedule(entry, 2)
     save_data(data)
-    print(f"'{name}' fumbled - streak reset. Next review: {next_review.isoformat()}")
+    print(f"'{name}' failed. Streak: {entry['streak']}. Next review: {next_review.isoformat()}")
+
+
+def mark_reset(name):
+    data = load_data()
+    entry = get_entry(data, name)
+    if entry is None:
+        return
+    entry["streak"] = 0
+    next_review = schedule(entry, 2)
+    save_data(data)
+    print(f"'{name}' reset to 0. Next review: {next_review.isoformat()}")
 
 
 def list_problems(only_due=False):
@@ -119,7 +163,7 @@ def list_problems(only_due=False):
     print("-" * 80)
     for days_until, name, entry, is_due in rows:
         if days_until < 0:
-            status = f"OVERDUE"
+            status = "OVERDUE"
         elif days_until == 0:
             status = "DUE TODAY"
         else:
@@ -129,6 +173,14 @@ def list_problems(only_due=False):
 
 def print_usage():
     print(__doc__)
+
+
+COMMANDS = {
+    "pass": mark_pass,
+    "slip": mark_slip,
+    "fail": mark_fail,
+    "reset": mark_reset,
+}
 
 
 def main():
@@ -146,17 +198,11 @@ def main():
         pattern = sys.argv[3] if len(sys.argv) > 3 else "General"
         add_problem(name, pattern)
 
-    elif cmd == "pass":
+    elif cmd in COMMANDS:
         if len(sys.argv) < 3:
-            print("Usage: python review.py pass \"Problem Name\"")
+            print(f"Usage: python review.py {cmd} \"Problem Name\"")
             return
-        mark_pass(sys.argv[2])
-
-    elif cmd == "fail":
-        if len(sys.argv) < 3:
-            print("Usage: python review.py fail \"Problem Name\"")
-            return
-        mark_fail(sys.argv[2])
+        COMMANDS[cmd](sys.argv[2])
 
     elif cmd == "list":
         list_problems(only_due=False)
