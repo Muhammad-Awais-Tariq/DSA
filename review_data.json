@@ -1,9 +1,9 @@
 {
   "Two Sum": {
     "pattern": "Hashmap",
-    "last_solved": "2026-09-19",
-    "next_review": "2026-10-05",
-    "streak": 4
+    "last_solved": "2026-10-05",
+    "next_review": "2026-10-25",
+    "streak": 5
   },
   "Contains Duplicate": {
     "pattern": "Hashmap",
